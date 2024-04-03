@@ -19,8 +19,9 @@ import {
   DrawerTrigger,
 } from '@/components/ui/drawer';
 import { cn } from '@/lib/utils';
+import useUIState from '@/hooks/useUIState';
 
-const HeaderDrawer = ({children}) => {
+const HeaderDrawer = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
@@ -30,10 +31,10 @@ const HeaderDrawer = ({children}) => {
         {/* 로고 */}
         {/* 재생목록 + 네비게이션 */}
         <div className='py-3'>
-            <div className='px-3'>
-                <Logo isInDrawer handleClickClose={()=>setIsOpen(false)} />
-            </div>
-            <Navigator />
+          <div className='px-3'>
+            <Logo isInDrawer handleClickClose={() => setIsOpen(false)} />
+          </div>
+          <Navigator />
         </div>
       </DrawerContent>
     </Drawer>
@@ -41,21 +42,22 @@ const HeaderDrawer = ({children}) => {
 };
 
 const Header = ({ children }) => {
-    const [isScrolled, setIsScrolled] = useState(false);
-    const headRef = useRef(null);
-    
-    useEffect(()=>{
-        const handleScroll = () => {
-            const scrollValue = headRef?.current?.scrollTop;
-            setIsScrolled(scrollValue !== 0);
-        }
-        headRef?.current?.addEventListener('scroll', handleScroll)
+  const [isScrolled, setIsScrolled] = useState(false);
+  const headRef = useRef(null);
+  const { headerImageSrc } = useUIState()
 
-        return () => {
-            headRef?.current?.removeEventListener('scroll', handleScroll)
-        }
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollValue = headRef?.current?.scrollTop;
+      setIsScrolled(scrollValue !== 0);
+    }
+    headRef?.current?.addEventListener('scroll', handleScroll)
 
-    },[])
+    return () => {
+      headRef?.current?.removeEventListener('scroll', handleScroll)
+    }
+
+  }, [])
 
   return (
     <header ref={headRef} className="relative overflow-y-auto w-full h-full">
@@ -66,7 +68,7 @@ const Header = ({ children }) => {
             alt="배경이미지"
             fill
             className="object-cover"
-            src="/img/header-background.jpg"
+            src={headerImageSrc || "/img/header-background.jpg"}
           />
         </div>
         <div className="absolute top-0 bg-black opacity-40 w-full h-[400px]"></div>
@@ -88,7 +90,7 @@ const Header = ({ children }) => {
             </article>
             {/* Header Drawer */}
             <HeaderDrawer>
-              <article className='lg:hidden'> 
+              <article className='lg:hidden'>
                 <Logo />
               </article>
             </HeaderDrawer>

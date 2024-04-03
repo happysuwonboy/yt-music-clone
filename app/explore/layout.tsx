@@ -1,8 +1,10 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode } from 'react';
 
-const layout = ({children} : {children : ReactNode}) => {
+const layout = ({ children }: { children: ReactNode }) => {
   return (
-    <div>{children}</div>
+    <div className='w-full h-full'>
+      {children}
+    </div>
   )
 }
 

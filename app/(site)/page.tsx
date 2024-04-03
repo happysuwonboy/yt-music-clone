@@ -1,16 +1,13 @@
 
-import Image from "next/image";
+'use client';
+import Category from '@/app/(site)/components/Category';
 
 const page = async () => {
 
   return (
     <div className='min-h-[600px]'>
-      {" "}
-      HomePage
-      <div className='h-[500px] bg-neutral-700'>Hompage</div>
-      <div className='h-[500px] bg-neutral-700'>Hompage</div>
-      <div className='h-[500px] bg-neutral-700'>Hompage</div>
-      <div className='h-[500px] bg-neutral-700'>Hompage</div>
+      <div className='mt-9'></div>
+      <Category />
     </div>
   )
 }
