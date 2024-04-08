@@ -1,9 +1,10 @@
-import React, { ReactNode } from 'react';
+import React from 'react'
+import Header from '@/components/elements/Header'
 
-const layout = ({ children }: { children: ReactNode }) => {
+const layout = ({children} : {children : React.ReactNode}) => {
   return (
     <div className='w-full h-full'>
-      {children}
+      <Header>{children}</Header>
     </div>
   )
 }

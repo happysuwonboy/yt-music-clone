@@ -66,7 +66,7 @@ const Header = ({ children }) => {
         <div className="relative h-[400px] w-full">
           <Image
             alt="배경이미지"
-            fill
+            fill={true}
             className="object-cover"
             src={headerImageSrc || "/img/header-background.jpg"}
           />
@@ -101,7 +101,7 @@ const Header = ({ children }) => {
           </div>
         </PagePadding>
       </section>
-      <section className="absolute">{children}</section>
+      <section className="absolute w-full">{children}</section>
     </header>
   );
 };
