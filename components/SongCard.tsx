@@ -34,7 +34,7 @@ const SongCard: React.FC<SongCardProps> = ({ song }) => {
       <div>
         <div>{song.name}</div>
       </div>
-      <section className='hidden group-hover:flex absolute w-full top-0 right-0 flex-row justify-end items-center h-[48px] w-1/2 bg-[rgba(0,0,0,0.7)]'>
+      <section className='hidden group-hover:flex absolute top-0 right-0 flex-row justify-end items-center h-[48px] w-1/2 bg-[rgba(0,0,0,0.7)]'>
 
         <IconButton icon={<FiThumbsUp size={20} />} />
         <IconButton icon={<FiThumbsDown size={20} />} />
