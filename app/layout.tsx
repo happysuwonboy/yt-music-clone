@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from '@/providers/themeProvider';
 import Sidebar from '@/components/Sidebar';
+import PlayerWraaper from '@/components/player/PlayerWraaper';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default function RootLayout({
             {children}
           </Sidebar>
 
+          <PlayerWraaper />
 
         </ThemeProvider>
       </body>
